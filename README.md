@@ -23,7 +23,7 @@ En el cierre del sistema, se le hara saber al usuario que ya puede "retirar su t
 
 ## Diagrama
 
-![Máquina de estados](https://user-images.githubusercontent.com/64466571/91104359-01c3df80-e644-11ea-9f08-f6518ccbd013.png)
+![Untitled Document](https://user-images.githubusercontent.com/64466571/91022359-76a70300-e5cb-11ea-8883-6796f2502d28.png)
 
 
 
