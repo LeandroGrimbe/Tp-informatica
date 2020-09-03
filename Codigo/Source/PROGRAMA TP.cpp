@@ -13,7 +13,6 @@ main()
 	{
 		if (mensaje==1)
 		{
-			char x;
 			printf("Gracias por operar en el Banco Provincia, tenga un buen dia!");
 			Sleep(3500);
 			system("cls");
@@ -54,9 +53,9 @@ main()
 			
 			case 'B':
 				
-			int B;
-			B=1; 
-			while(B==1)
+			int C;
+			C=1; 
+			while(C==1)
 			{	
 				acciones(opcion);
 				int tareaD;
@@ -79,6 +78,7 @@ main()
 			break;
 			
 			default: 
+			
 			printf("Opcion incorrecta, volviendo al Menu Principal.....");
 			Sleep(2500);
 			system("cls");
