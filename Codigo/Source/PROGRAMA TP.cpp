@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <windows.h>
-#include <string.h>
 
 void acciones(char x);
 void saldo(char x,int z);
