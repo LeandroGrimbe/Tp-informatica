@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <windows.h>
+#include <string.h>
 
 void acciones(char x);
 void saldo(char x,int z);
@@ -15,6 +16,7 @@ main()
 	int dolares=3000; 
 	int A=1;
 	int mensaje=0;
+	int i;
 	while(A==1)
 	{
 		if (mensaje==1)
@@ -59,9 +61,17 @@ main()
 		scanf("%c",&opcion);
 		opcion=toupper(opcion);
 		system("cls");
+		enum 
+		{
+			PESOS='A', DOLARES='B', SALIR='C'
+		};
+		enum
+		{
+			RETIRO=1, DEPOSITO=2, TRANSFER=3, SALDO=4, VOLVER=5
+		};
 		switch(opcion)
 		{
-			case 'A':
+			case PESOS:
 				int B;
 				B=1; 
 				while(B==1)
@@ -70,40 +80,114 @@ main()
 					int tareaP;
 					scanf("%i",&tareaP);
 					system("cls");
+					int seguir=1;
+					int sigue;
 					switch(tareaP)
 					{
-						case 1:
-							int retP;
-							printf("Ingrese el monto que desea retirar:\n");
-							printf("\n\nMonto:  ");
-							scanf("%i",&retP);
-							pesos=retiro(pesos,retP);
+						case RETIRO:
+							while(seguir==1)
+							{
+								int retP;
+								printf("Ingrese el monto que desea retirar:\n");
+								printf("\n\nMonto:  ");
+								scanf("%i",&retP);
+								pesos=retiro(pesos,retP);
+								printf("Desea seguir con esta operacion?\n");
+								printf("\n1)Si\n2)No\n");
+								printf("\nOpcion:  ");
+								scanf("%i",&sigue);
+								if(sigue==1)
+								{
+									seguir=1;
+								}
+								if(sigue==2)
+								{
+									seguir=0;
+									system("cls");
+									printf("Regresando al Menu");
+									for(i=1;i<5;i++)
+									{
+										Sleep(700);
+										printf(".");
+									}
+									
+								}
+								system("cls");
+							}
 							break;
 							
-						case 2:
-							int depoP;
-							printf("Ingrese el monto que desea depositar:\n");
-							printf("\n\nMonto:   ");
-							scanf("%i",&depoP);
-							pesos=deposito(pesos,depoP);
+						case DEPOSITO:
+							while(seguir==1)
+							{
+								int depoP;
+								printf("Ingrese el monto que desea depositar:\n");
+								printf("\n\nMonto:   ");
+								scanf("%i",&depoP);
+								pesos=deposito(pesos,depoP);
+								printf("Desea seguir con esta operacion?\n");
+								printf("\n1)Si\n2)No\n");
+								printf("\nOpcion:  ");
+								scanf("%i",&sigue);
+								if(sigue==1)
+								{
+									seguir=1;
+								}
+								if(sigue==2)
+								{
+									seguir=0;
+									system("cls");
+									printf("Regresando al Menu");
+									for(i=1;i<5;i++)
+									{
+										Sleep(700);
+										printf(".");
+									}
+									
+								}
+								system("cls");
+							}
 							break;
 							
-						case 3:
-							int cbuP;
-							int transP;
-							printf("Para realizar una transferencia, por favor introduzca el CBU del destinatario, y el monto correspondiente: \n");
-							printf("\n\nCBU (5 digitos):   ");
-							scanf("%i",&cbuP);
-							printf("\nMonto:   ");
-							scanf("%i",&transP);
-							pesos=transferencia(pesos,transP,cbuP);
+						case TRANSFER:
+							while(seguir==1)
+							{
+								int cbuP;
+								int transP;
+								printf("Para realizar una transferencia, por favor introduzca el CBU del destinatario, y el monto correspondiente: \n");
+								printf("\n\nCBU (5 digitos):   ");
+								scanf("%i",&cbuP);
+								printf("\nMonto:   ");
+								scanf("%i",&transP);
+								pesos=transferencia(pesos,transP,cbuP);
+								printf("Desea seguir con esta operacion?\n");
+								printf("\n1)Si\n2)No\n");
+								printf("\nOpcion:  ");
+								scanf("%i",&sigue);
+								if(sigue==1)
+								{
+									seguir=1;
+								}
+								if(sigue==2)
+								{
+									seguir=0;
+									system("cls");
+									printf("Regresando al Menu");
+									for(i=1;i<5;i++)
+									{
+										Sleep(700);
+										printf(".");
+									}
+									
+								}
+								system("cls");
+							}
 							break;
 							
-						case 4:
+						case SALDO:
 							saldo(opcion,pesos);
 							break;
 							
-						case 5:
+						case VOLVER:
 							B=0;
 							mensaje=1;
 							break;
@@ -114,7 +198,7 @@ main()
 				}
 				break;
 			
-			case 'B':	
+			case DOLARES:	
 				int C;
 				C=1; 
 				while(C==1)
@@ -123,40 +207,114 @@ main()
 					int tareaD;
 					scanf("%i",&tareaD);
 					system("cls");
+					int seguir=1;
+					int sigue;
 					switch(tareaD)
 					{
-						case 1:
-							int retD;
-							printf("Ingrese el monto que desea retirar:\n");
-							printf("\n\nMonto:  ");
-							scanf("%i",&retD);
-							dolares=retiro(dolares,retD);
+						case RETIRO:
+							while(seguir==1)
+							{
+								int retD;
+								printf("Ingrese el monto que desea retirar:\n");
+								printf("\n\nMonto:  ");
+								scanf("%i",&retD);
+								dolares=retiro(dolares,retD);
+								printf("Desea seguir con esta operacion?\n");
+								printf("\n1)Si\n2)No\n");
+								printf("\nOpcion:  ");
+								scanf("%i",&sigue);
+								if(sigue==1)
+								{
+									seguir=1;
+								}
+								if(sigue==2)
+								{
+									seguir=0;
+									system("cls");
+									printf("Regresando al Menu");
+									for(i=1;i<5;i++)
+									{
+										Sleep(700);
+										printf(".");
+									}
+									
+								}
+								system("cls");
+							}
 							break;
 							
-						case 2:
-							int depoD;
-							printf("Ingrese el monto que desea depositar:\n");
-							printf("\n\nMonto:   ");
-							scanf("%i",&depoD);
-							dolares=deposito(dolares,depoD);
+						case DEPOSITO:
+							while(seguir==1)
+							{
+								int depoD;
+								printf("Ingrese el monto que desea depositar:\n");
+								printf("\n\nMonto:   ");
+								scanf("%i",&depoD);
+								dolares=deposito(dolares,depoD);
+								printf("Desea seguir con esta operacion?\n");
+								printf("\n1)Si\n2)No\n");
+								printf("\nOpcion:  ");
+								scanf("%i",&sigue);
+								if(sigue==1)
+								{
+									seguir=1;
+								}
+								if(sigue==2)
+								{
+									seguir=0;
+									system("cls");
+									printf("Regresando al Menu");
+									for(i=1;i<5;i++)
+									{
+										Sleep(700);
+										printf(".");
+									}
+									
+								}
+								system("cls");
+							}
 							break;
 							
-						case 3:
-							int cbuD;
-							int transD;
-							printf("Para realizar una transferencia, por favor introduzca el CBU del destinatario, y el monto correspondiente: \n");
-							printf("\n\nCBU (5 digitos):   ");
-							scanf("%i",&cbuD);
-							printf("\nMonto:   ");
-							scanf("%i",&transD);
-							dolares=transferencia(dolares,transD,cbuD);
+						case TRANSFER:
+							while(seguir==1)
+							{
+								int cbuD;
+								int transD;
+								printf("Para realizar una transferencia, por favor introduzca el CBU del destinatario, y el monto correspondiente: \n");
+								printf("\n\nCBU (5 digitos):   ");
+								scanf("%i",&cbuD);
+								printf("\nMonto:   ");
+								scanf("%i",&transD);
+								dolares=transferencia(dolares,transD,cbuD);
+								printf("Desea seguir con esta operacion?\n");
+								printf("\n1)Si\n2)No\n");
+								printf("\nOpcion:  ");
+								scanf("%i",&sigue);
+								if(sigue==1)
+								{
+									seguir=1;
+								}
+								if(sigue==2)
+								{
+									seguir=0;
+									system("cls");
+									printf("Regresando al Menu");
+									for(i=1;i<5;i++)
+									{
+										Sleep(700);
+										printf(".");
+									}
+									
+								}
+								system("cls");
+							}
 							break;
 							
-						case 4:
+						case SALDO:
 							saldo(opcion,dolares);
 							break;
 							
-						case 5:
+						case VOLVER:
 							C=0;
 							mensaje=1;
 							break;
@@ -164,7 +322,7 @@ main()
 				}
 				break;
 			
-			case 'C': 	
+			case SALIR: 	
 				mensaje=1;
 				break;
 			
@@ -211,12 +369,8 @@ int retiro(int x,int z)
 	else
 	{
 		x=x-z;
-		printf("\n\nSu retiro se ha realizado correctamente.Regresando al menu");
-		for(i=1;i<5;i++)
-		{
-			Sleep(700);
-			printf(".");
-		}
+		printf("\n\nSu retiro se ha realizado correctamente.");
+		Sleep(3000);
 	}
 	system("cls");
 	return x;
@@ -236,12 +390,8 @@ int deposito(int x,int z)
 	if(z>0)
 	{
 		x=x+z;
-		printf("\n\nSu deposito se ha realizado correctamente.Regresando al menu");
-		for(i=1;i<5;i++)
-		{
-			Sleep(700);
-			printf(".");
-		}
+		printf("\n\nSu deposito se ha realizado correctamente.");
+		Sleep(3000);
 	}
 	else
 	{
@@ -291,12 +441,8 @@ int transferencia(int x,int z,int num)
 			else
 			{
 				x=x-z;
-				printf("\n\nSu transferencia se ha realizado correctamente.Regresando al menu");
-				for(i=1;i<5;i++)
-				{
-				Sleep(700);
-				printf(".");
-				}
+				printf("\n\nSu transferencia se ha realizado correctamente.");
+				Sleep(3000);
 			}
 		}
 		if(rta[0]=='N'&rta[1]=='O')
@@ -338,12 +484,8 @@ int transferencia(int x,int z,int num)
 			else
 			{
 				x=x-z;
-				printf("\n\nSu transferencia se ha realizado correctamente.Regresando al menu");
-				for(i=1;i<5;i++)
-				{
-				Sleep(700);
-				printf(".");
-				}
+				printf("\n\nSu transferencia se ha realizado correctamente.");
+				Sleep(3000);
 			}
 		}
 		if(rta[0]=='N'&rta[1]=='O')
@@ -360,14 +502,8 @@ int transferencia(int x,int z,int num)
 	}
 	if(num!=11111&num!=22222)
 	{
-		printf("\nCBU no encontrado. Volviendo al Menu");
-		int i;
-		for(i=1;i<5;i++)
-		{
-			Sleep(500);
-			printf(".");
-		}
-		
+		printf("\nCBU no encontrado. Intente nuevamente");
+		Sleep(3000);	
 	}
 	system("cls");
 	return x;		
