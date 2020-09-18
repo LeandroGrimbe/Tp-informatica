@@ -5,11 +5,10 @@ main()
 	while(A==1)
 	{
 		p=&pesos;
-		w=&dolares;
-		h=&seguir;
+		d=&dolares;
 		if (mensaje==1)
 		{
-			cierre(p,w);
+			cierre(p,d);
 			mensaje=0;
 		}
 		opcion=menu();
@@ -24,40 +23,25 @@ main()
 					switch(tareaP)
 					{
 						case RETIRO:
-							while(seguir==1)
-							{
-								pesos=retiro(pesos);
-								estado(h);
-							}
-							break;
+							retiro(p);
+						break;
 							
 						case DEPOSITO:
-							while(seguir==1)
-							{
-								pesos=deposito(pesos);
-								estado(h);
-							}
-							break;
+							deposito(p);
+						break;
 							
 						case TRANSFER:
-							while(seguir==1)
-							{
-								pesos=transferencia(pesos);
-								estado(h);
-							}
-							break;
+							transferencia(p);
+						break;
 							
 						case SALDO:
 							saldo(opcion,pesos);
-							break;
+						break;
 							
 						case VOLVER:
 							B=0;
 							mensaje=1;
-							break;
-					
-							
-						
+						break;
 					}
 				}
 				break;
@@ -71,37 +55,25 @@ main()
 					switch(tareaD)
 					{
 						case RETIRO:
-							while(seguir==1)
-							{
-								dolares=retiro(dolares);
-								estado(h);
-							}
-							break;
+							retiro(d);
+						break;
 							
 						case DEPOSITO:
-							while(seguir==1)
-							{
-								dolares=deposito(dolares);
-								estado(h);
-							}
-							break;
+							deposito(d);
+						break;
 							
 						case TRANSFER:
-							while(seguir==1)
-							{
-								dolares=transferencia(dolares);
-								estado(h);
-							}
-							break;
+							transferencia(d);
+						break;
 							
 						case SALDO:
 							saldo(opcion,dolares);
-							break;
+						break;
 							
 						case VOLVER:
 							C=0;
 							mensaje=1;
-							break;
+						break;
 					}
 				}
 				break;

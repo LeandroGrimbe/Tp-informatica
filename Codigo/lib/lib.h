@@ -5,7 +5,7 @@
 
 char opcion;
 int *p;
-int *w;
+int *d;
 int *h;
 int pesos=100000;
 int dolares=3000; 

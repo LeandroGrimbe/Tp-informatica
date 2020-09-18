@@ -3,9 +3,9 @@
 void Cierre(int *x, int *y);
 char Menu(void);
 int acciones(char x);
-int retiro(int x);
-int deposito(int x);
-int transferencia(int x);
+void retiro(int *x);
+void deposito(int *x);
+void transferencia(int *x);
 void saldo(char x,int z);
 void estado(int *x);
 
@@ -82,177 +82,189 @@ int acciones(char x)
 }
 
 
-int retiro(int x)
+void retiro(int *x)
 {
-	int ret;
-	printf("Ingrese el monto que desea retirar:\n");
-	printf("\n\nMonto:  ");
-	scanf("%i",&ret);
-	system("cls");
-	printf("Procesando solicitud");
-	int i;
-	for(i=1;i<5;i++)
+	while(seguir==1)
 	{
-		Sleep(700);
-		printf(".");
+		h=&seguir;
+		int ret;
+		printf("Ingrese el monto que desea retirar:\n");
+		printf("\n\nMonto:  ");
+		scanf("%i",&ret);
+		system("cls");
+		printf("Procesando solicitud");
+		int i;
+		for(i=1;i<5;i++)
+		{
+			Sleep(700);
+			printf(".");
+		}
+		if(ret<0|ret>*x)
+		{
+			printf("\n\nERROR: El monto que se quiere retirar es mayor al saldo disponible, o ha introducido \nun valor invalido. Intentelo nuevamente");
+			Sleep(4000);		
+		}
+		else
+		{
+			*x=*x-ret;
+			printf("\n\nSu retiro se ha realizado correctamente.");
+			Sleep(3000);
+		}
+		system("cls");
+		estado(h);
 	}
-	if(ret<0|ret>x)
-	{
-		printf("\n\nERROR: El monto que se quiere retirar es mayor al saldo disponible, o ha introducido \nun valor invalido. Intentelo nuevamente");
-		Sleep(4000);		
-	}
-	else
-	{
-		x=x-ret;
-		printf("\n\nSu retiro se ha realizado correctamente.");
-		Sleep(3000);
-	}
-	system("cls");
-	return x;
 }
 
 
-int deposito(int x)
+void deposito(int *x)
 {
-	int depo;
-	printf("Ingrese el monto que desea depositar:\n");
-	printf("\n\nMonto:   ");
-	scanf("%i",&depo);
-	system("cls");
-	printf("Procesando solicitud");
-	int i;
-	for(i=1;i<5;i++)
+	while(seguir==1)
 	{
-		Sleep(700);
-		printf(".");
+		h=&seguir;
+		int depo;
+		printf("Ingrese el monto que desea depositar:\n");
+		printf("\n\nMonto:   ");
+		scanf("%i",&depo);
+		system("cls");
+		printf("Procesando solicitud");
+		int i;
+		for(i=1;i<5;i++)
+		{
+			Sleep(700);
+			printf(".");
+		}
+		if(depo>0)
+		{
+			*x=*x+depo;
+			printf("\n\nSu deposito se ha realizado correctamente.");
+			Sleep(3000);
+		}
+		else
+		{
+			printf("\n\nERROR: El monto que se quiere depositar es erroneo o es nulo. \nIntentelo nuevamente");
+			Sleep(4000);
+		}
+		system("cls");
+		estado(h);
 	}
-	if(depo>0)
-	{
-		x=x+depo;
-		printf("\n\nSu deposito se ha realizado correctamente.");
-		Sleep(3000);
-	}
-	else
-	{
-		printf("\n\nERROR: El monto que se quiere depositar es erroneo o es nulo. \nIntentelo nuevamente");
-		Sleep(4000);
-	}
-	system("cls");
-	return x;
 }
 
 
-int transferencia(int x)
+void transferencia(int *x)
 {
-	int cbu;
-	int trans;	
-	printf("Para realizar una transferencia, por favor introduzca el CBU del destinatario, y el monto correspondiente: \n");
-	printf("\n\nCBU (5 digitos):   ");
-	scanf("%i",&cbu);
-	printf("\nMonto:   ");
-	scanf("%i",&trans);
-	system("cls");
-	printf("Procesando");
-	int i;
-	for(i=1;i<5;i++)
+	while(seguir==1)
 	{
-		Sleep(700);
-		printf(".");
-	}
-	if(cbu==11111)
-	{
-		printf("\n\nEl Nro de CBU: -11111- corresponde a:\n\n");
-		printf("-RIQUELME, JUAN ROMAN\n\n");
-		printf("Desea proseguir con la operacion?\n");
-		char rta[2];
-		printf("\nOpcion:  ");
-		scanf("%s",rta);
-		rta[0]=toupper(rta[0]);
-		rta[1]=toupper(rta[1]);
+		h=&seguir;
+		int cbu;
+		int trans;	
+		printf("Para realizar una transferencia, por favor introduzca el CBU del destinatario, y el monto correspondiente: \n");
+		printf("\n\nCBU (5 digitos):   ");
+		scanf("%i",&cbu);
+		printf("\nMonto:   ");
+		scanf("%i",&trans);
 		system("cls");
-		if(rta[0]=='S'&rta[1]=='I')
+		printf("Procesando");
+		int i;
+		for(i=1;i<5;i++)
 		{
-			printf("Confirmando Transferencia");
-			int i;
-			for(i=1;i<5;i++)
-			{
-			Sleep(500);
+			Sleep(700);
 			printf(".");
-			}
-			if(trans<0|trans>x)
+		}
+		if(cbu==11111)
+		{
+			printf("\n\nEl Nro de CBU: -11111- corresponde a:\n\n");
+			printf("-RIQUELME, JUAN ROMAN\n\n");
+			printf("Desea proseguir con la operacion?\n");
+			char rta[2];
+			printf("\nOpcion:  ");
+			scanf("%s",rta);
+			rta[0]=toupper(rta[0]);
+			rta[1]=toupper(rta[1]);
+			system("cls");
+			if(rta[0]=='S'&rta[1]=='I')
 			{
-				printf("\n\nERROR: El monto que se quiere transferir es mayor al saldo disponible, o ha introducido \nun valor invalido. Intentelo nuevamente");
-				Sleep(4000);		
+				printf("Confirmando Transferencia");
+				int i;
+				for(i=1;i<5;i++)
+				{
+				Sleep(500);
+				printf(".");
+				}
+				if(trans<0|trans>*x)
+				{
+					printf("\n\nERROR: El monto que se quiere transferir es mayor al saldo disponible, o ha introducido \nun valor invalido. Intentelo nuevamente");
+					Sleep(4000);		
+				}
+				else
+				{
+					*x=*x-trans;
+					printf("\n\nSu transferencia se ha realizado correctamente.");
+					Sleep(3000);
+				}
 			}
-			else
+			if(rta[0]=='N'&rta[1]=='O')
 			{
-				x=x-trans;
-				printf("\n\nSu transferencia se ha realizado correctamente.");
-				Sleep(3000);
+				printf("Regresando al Menu");
+				int i;
+				for(i=1;i<5;i++)
+				{
+				Sleep(500);
+				printf(".");
+				}
 			}
 		}
-		if(rta[0]=='N'&rta[1]=='O')
+		if(cbu==22222)
 		{
-			printf("Regresando al Menu");
-			int i;
-			for(i=1;i<5;i++)
+			printf("\n\nEl Nro de CBU: -22222- corresponde a:\n\n");
+			printf("-GONZALES, TOMAS ADRIAN\n\n");
+			printf("Desea proseguir con la operacion?\n");
+			char rta[2];
+			printf("\nOpcion:  ");
+			scanf("%s",rta);
+			rta[0]=toupper(rta[0]);
+			rta[1]=toupper(rta[1]);
+			system("cls");
+			if(rta[0]=='S'&rta[1]=='I')
 			{
-			Sleep(500);
-			printf(".");
+				printf("Confirmando Transferencia");
+				int i;
+				for(i=1;i<5;i++)
+				{
+				Sleep(500);
+				printf(".");
+				}
+				if(trans<0|trans>*x)
+				{
+					printf("\n\nERROR: El monto que se quiere transferir es mayor al saldo disponible, o ha \nintroducido un valor invalido. Intentelo nuevamente");
+					Sleep(4000);		
+				}
+				else
+				{
+					*x=*x-trans;
+					printf("\n\nSu transferencia se ha realizado correctamente.");
+					Sleep(3000);
+				}
 			}
+			if(rta[0]=='N'&rta[1]=='O')
+			{
+				printf("Regresando al Menu");
+				int i;
+				for(i=1;i<5;i++)
+				{
+				Sleep(500);
+				printf(".");
+				}
+			}
+			
 		}
-	}
-	if(cbu==22222)
-	{
-		printf("\n\nEl Nro de CBU: -22222- corresponde a:\n\n");
-		printf("-GONZALES, TOMAS ADRIAN\n\n");
-		printf("Desea proseguir con la operacion?\n");
-		char rta[2];
-		printf("\nOpcion:  ");
-		scanf("%s",rta);
-		rta[0]=toupper(rta[0]);
-		rta[1]=toupper(rta[1]);
+		if(cbu!=11111&cbu!=22222)
+		{
+			printf("\nCBU no encontrado. Intente nuevamente");
+			Sleep(3000);	
+		}
 		system("cls");
-		if(rta[0]=='S'&rta[1]=='I')
-		{
-			printf("Confirmando Transferencia");
-			int i;
-			for(i=1;i<5;i++)
-			{
-			Sleep(500);
-			printf(".");
-			}
-			if(trans<0|trans>x)
-			{
-				printf("\n\nERROR: El monto que se quiere transferir es mayor al saldo disponible, o ha \nintroducido un valor invalido. Intentelo nuevamente");
-				Sleep(4000);		
-			}
-			else
-			{
-				x=x-trans;
-				printf("\n\nSu transferencia se ha realizado correctamente.");
-				Sleep(3000);
-			}
-		}
-		if(rta[0]=='N'&rta[1]=='O')
-		{
-			printf("Regresando al Menu");
-			int i;
-			for(i=1;i<5;i++)
-			{
-			Sleep(500);
-			printf(".");
-			}
-		}
-		
+		estado(h);
 	}
-	if(cbu!=11111&cbu!=22222)
-	{
-		printf("\nCBU no encontrado. Intente nuevamente");
-		Sleep(3000);	
-	}
-	system("cls");
-	return x;		
 }
 
 
