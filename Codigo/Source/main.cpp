@@ -6,6 +6,7 @@ main()
 	{
 		p=&pesos;
 		d=&dolares;
+		s=&submenu;
 		if (mensaje==1)
 		{
 			cierre(p,d);
@@ -15,23 +16,26 @@ main()
 		switch(opcion)
 		{
 			case PESOS:
-				B=1; 
+				B=1;
+				submenu=1; 
 				while(B==1)
-				{	
-					tareaP=acciones(opcion);
-					seguir=1;
+				{
+					if(submenu==1)
+					{
+						tareaP=acciones(opcion);
+					}
 					switch(tareaP)
 					{
 						case RETIRO:
-							retiro(p);
+							retiro(p,s);
 						break;
 							
 						case DEPOSITO:
-							deposito(p);
+							deposito(p,s);
 						break;
 							
 						case TRANSFER:
-							transferencia(p);
+							transferencia(p,s);
 						break;
 							
 						case SALDO:
@@ -47,23 +51,26 @@ main()
 				break;
 			
 			case DOLARES:
-				C=1; 
+				C=1;
+				submenu=1; 
 				while(C==1)
-				{	
-					tareaD=acciones(opcion);
-					seguir=1;
+				{
+					if(submenu==1)
+					{
+						tareaD=acciones(opcion);
+					}
 					switch(tareaD)
 					{
 						case RETIRO:
-							retiro(d);
+							retiro(d,s);
 						break;
 							
 						case DEPOSITO:
-							deposito(d);
+							deposito(d,s);
 						break;
 							
 						case TRANSFER:
-							transferencia(d);
+							transferencia(d,s);
 						break;
 							
 						case SALDO:
