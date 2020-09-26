@@ -6,91 +6,89 @@ main()
 	{
 		p=&pesos;
 		d=&dolares;
-		s=&submenu;
+		ta=&tarea;
 		if (mensaje==1)
-		{
+		{	
 			cierre(p,d);
 			mensaje=0;
+			opcion=0;
+			*ta=0;
 		}
-		opcion=menu();
+
 		switch(opcion)
 		{
+			case MENU:
+				opcion=menu();
+				break;
+				
 			case PESOS:
-				B=1;
-				submenu=1; 
-				while(B==1)
+				switch(tarea)
 				{
-					if(submenu==1)
-					{
-						tareaP=acciones(opcion);
-					}
-					switch(tareaP)
-					{
-						case RETIRO:
-							retiro(p,s);
+					case TAREAS:
+						acciones(opcion,ta);
 						break;
-							
-						case DEPOSITO:
-							deposito(p,s);
+						
+					case RETIRO:
+						retiro(p,ta);
 						break;
-							
-						case TRANSFER:
-							transferencia(p,s);
+						
+					case DEPOSITO:
+						deposito(p,ta);
 						break;
-							
-						case SALDO:
-							saldo(opcion,pesos);
+						
+					case TRANSFER:
+						transferencia(p,ta);
 						break;
-							
-						case VOLVER:
-							B=0;
-							mensaje=1;
+						
+					case SALDO:
+						saldo(opcion,pesos,ta);
 						break;
-					}
+						
+					case VOLVER:
+						mensaje=1;
+						break;
 				}
 				break;
 			
 			case DOLARES:
-				C=1;
-				submenu=1; 
-				while(C==1)
+				switch(tarea)
 				{
-					if(submenu==1)
-					{
-						tareaD=acciones(opcion);
-					}
-					switch(tareaD)
-					{
-						case RETIRO:
-							retiro(d,s);
+					case TAREAS:
+						acciones(opcion,ta);
 						break;
-							
-						case DEPOSITO:
-							deposito(d,s);
+						
+					case RETIRO:
+						retiro(d,ta);
 						break;
-							
-						case TRANSFER:
-							transferencia(d,s);
+						
+					case DEPOSITO:
+						deposito(d,ta);
 						break;
-							
-						case SALDO:
-							saldo(opcion,dolares);
+						
+					case TRANSFER:
+						transferencia(d,ta);
 						break;
-							
-						case VOLVER:
-							C=0;
-							mensaje=1;
+						
+					case SALDO:
+						saldo(opcion,dolares,ta);
 						break;
-					}
+						
+					case VOLVER:
+						mensaje=1;
+						break;
 				}
 				break;
 			
-			case SALIR: 	
+			case SALIR: 
 				mensaje=1;
 				break;
-			
+				
+			case FIN:
+				A=0;
+				break;
 		}
-	}	
+	}
+	apagar();	
 }
 
 

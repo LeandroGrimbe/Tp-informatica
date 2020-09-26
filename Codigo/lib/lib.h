@@ -3,27 +3,25 @@
 #include <ctype.h>
 #include <windows.h>
 
-char opcion;
 int *p;
 int *d;
 int *s;
+int *ta;
+int opcion=0;
 int pesos=100000;
 int dolares=3000; 
 int A=1;
+char cambio='Y';
 int mensaje=0;	
 int i;
 int sigue;
-int submenu;
-int tareaP;
-int tareaD;
-int B;
-int C;
+int tarea=0;
 
 enum 
 {
-	PESOS='A', DOLARES='B', SALIR='C'
+	MENU=0, PESOS=1, DOLARES=2, SALIR=3, FIN=334
 };
 enum
 {
-	RETIRO=1, DEPOSITO=2, TRANSFER=3, SALDO=4, VOLVER=5
+	TAREAS=0, RETIRO=1, DEPOSITO=2, TRANSFER=3, SALDO=4, VOLVER=5
 };

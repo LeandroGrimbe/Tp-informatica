@@ -1,13 +1,14 @@
 #include "..\lib\lib.h" 
 
 void Cierre(int *x, int *y);
-char Menu(void);
-int acciones(char x);
+int Menu(void);
+void acciones(int x, int *y);
 void retiro(int *x,int *y);
 void deposito(int *x, int *y);
 void transferencia(int *x, int *y);
-void saldo(char x,int z);
+void saldo(int x,int y,int *z);
 int estado(void);
+void apagar(void);
 
 
 void cierre(int *x,int *y)
@@ -41,30 +42,30 @@ void cierre(int *x,int *y)
 
 
 
-char menu(void)
+int menu(void)
 {
 	printf("Bienvenido al cajero automatico del Banco Provincia\n\n");
 	printf("Seleccione la cuenta con la que desea operar:\n");
-	printf("A)Caja de Ahorro en pesos\n");
-	printf("B)Caja de Ahorro en dolares\n");
-	printf("C)Salir\n");
+	printf("1)Caja de Ahorro en pesos\n");
+	printf("2)Caja de Ahorro en dolares\n");
+	printf("3)Salir\n");
 	printf("\nOpcion:  ");
-	char opcion;
-	scanf("%c",&opcion);
-	opcion=toupper(opcion);
+	int cuentas;
+	scanf("%i",&cuentas);
 	system("cls");
-	return opcion;
+	return cuentas;
 }
 
 
 
-int acciones(char x)
+
+void acciones(int x, int *y)
 {
-	if(x=='A')
+	if(x==1)
 	{
 		printf("-Usted ha seleccionado: Caja de Ahorro en Pesos-");
 	}
-	if(x=='B')
+	if(x==2)
 	{
 		printf("-Usted ha seleccionado: Caja de Ahorro en Dolares-");
 	}
@@ -75,10 +76,10 @@ int acciones(char x)
 	printf("\n4)Ver saldo disponible");
 	printf("\n5)Volver al menu principal\n");
 	printf("\nOpcion:  ");
-	int tarea;
-	scanf("%i",&tarea);
+	int tareas;
+	scanf("%i",&tareas);
 	system("cls");
-	return tarea;
+	*y=tareas;
 }
 
 
@@ -255,19 +256,20 @@ void transferencia(int *x, int *y)
 }
 
 
-void saldo(char x,int z)
+void saldo(int x,int y, int *z)
 {
 	printf("Actualmente, usted dispone de ");
-	if(x=='A')
+	if(x==1)
 	{
-		printf("$%i en cuenta.\n",z);
+		printf("$%i en cuenta.\n",y);
 	}
-	if(x=='B')
+	if(x==2)
 	{
-		printf("U$S%i en cuenta.\n\n",z);
+		printf("U$S%i en cuenta.\n\n",y);
 	}
 	system("pause");
 	system("cls");
+	*z=0;
 }
 
 
@@ -283,7 +285,7 @@ int estado(void)
 	if(sigue[0]=='S'&sigue[1]=='I')
 	{
 		system("cls");
-		return 0;
+		return tarea;
 	}
 	if(sigue[0]=='N'&sigue[1]=='O')
 	{
@@ -295,8 +297,18 @@ int estado(void)
 			printf(".");
 		}
 		system("cls");
-		return 1;
+		return 0;
 		
 	}
 	system("cls");
+}
+
+void apagar(void)
+{
+	printf("Apagando");
+	for(i=1;i<5;i++)
+		{
+			Sleep(700);
+			printf(".");
+		}
 }
