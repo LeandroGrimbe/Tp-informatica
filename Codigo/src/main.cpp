@@ -1,12 +1,19 @@
-#include"..\lib\funciones.c"
+#include "..\lib\lib.h" 
 
 main()
 {
-	while(A==1)
+	int opcion=0; 
+	int mensaje=0;
+	int pesos=100000;
+	int dolares=3000;
+	int *p;
+	p=&pesos;
+	int *d;
+	d=&dolares;
+	int *ta;
+	ta=&tarea;
+	while(1)
 	{
-		p=&pesos;
-		d=&dolares;
-		ta=&tarea;
 		if (mensaje==1)
 		{	
 			cierre(p,d);
@@ -14,7 +21,6 @@ main()
 			opcion=0;
 			*ta=0;
 		}
-
 		switch(opcion)
 		{
 			case MENU:
@@ -82,13 +88,8 @@ main()
 			case SALIR: 
 				mensaje=1;
 				break;
-				
-			case FIN:
-				A=0;
-				break;
 		}
-	}
-	apagar();	
+	}	
 }
 
 

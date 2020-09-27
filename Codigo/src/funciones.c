@@ -1,15 +1,5 @@
 #include "..\lib\lib.h" 
 
-void Cierre(int *x, int *y);
-int Menu(void);
-void acciones(int x, int *y);
-void retiro(int *x,int *y);
-void deposito(int *x, int *y);
-void transferencia(int *x, int *y);
-void saldo(int x,int y,int *z);
-int estado(void);
-void apagar(void);
-
 
 void cierre(int *x,int *y)
 {
@@ -174,7 +164,6 @@ void transferencia(int *x, int *y)
 		if(rta[0]=='S'&rta[1]=='I')
 		{
 			printf("Confirmando Transferencia");
-			int i;
 			for(i=1;i<5;i++)
 			{
 				Sleep(500);
@@ -195,7 +184,6 @@ void transferencia(int *x, int *y)
 		if(rta[0]=='N'&rta[1]=='O')
 		{
 			printf("Regresando al Menu");
-			int i;
 			for(i=1;i<5;i++)
 			{
 				Sleep(500);
@@ -217,7 +205,6 @@ void transferencia(int *x, int *y)
 		if(rta[0]=='S'&rta[1]=='I')
 		{
 			printf("Confirmando Transferencia");
-			int i;
 			for(i=1;i<5;i++)
 			{
 				Sleep(500);
@@ -238,7 +225,6 @@ void transferencia(int *x, int *y)
 		if(rta[0]=='N'&rta[1]=='O')
 		{
 			printf("Regresando al Menu");
-			int i;
 			for(i=1;i<5;i++)
 			{
 				Sleep(500);
@@ -291,6 +277,7 @@ int estado(void)
 	{
 		system("cls");
 		printf("Regresando al Menu");
+		int i;
 		for(i=1;i<5;i++)
 		{
 			Sleep(700);
@@ -303,12 +290,3 @@ int estado(void)
 	system("cls");
 }
 
-void apagar(void)
-{
-	printf("Apagando");
-	for(i=1;i<5;i++)
-		{
-			Sleep(700);
-			printf(".");
-		}
-}
