@@ -1,19 +1,20 @@
-#include "..\lib\lib.h" 
+#include"..\lib\lib.h" 
 
 main()
 {
-	int opcion=0; 
-	int mensaje=0;
 	int pesos=100000;
 	int dolares=3000;
-	int *p;
-	p=&pesos;
-	int *d;
-	d=&dolares;
-	int *ta;
-	ta=&tarea;
+	int opcion=0;  
+	int mensaje=0;
+	int tarea=0;  
 	while(1)
 	{
+		int *p;
+		int *d;
+		int *ta;	
+		p=&pesos;
+		d=&dolares;
+		ta=&tarea;
 		if (mensaje==1)
 		{	
 			cierre(p,d);
@@ -89,7 +90,7 @@ main()
 				mensaje=1;
 				break;
 		}
-	}	
+	}
 }
 
 

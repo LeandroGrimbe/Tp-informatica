@@ -1,4 +1,4 @@
-#include "..\lib\lib.h" 
+#include"..\lib\lib.h" 
 
 
 void cierre(int *x,int *y)
@@ -75,6 +75,7 @@ void acciones(int x, int *y)
 
 void retiro(int *x, int *y)
 {
+	int m=1;
 	int ret;	
 	printf("Ingrese el monto que desea retirar:\n");
 	printf("\n\nMonto:  ");
@@ -99,12 +100,13 @@ void retiro(int *x, int *y)
 		Sleep(3000);
 	}
 	system("cls");
-	*y=estado();
+	*y=estado(m);
 }
 
 
 void deposito(int *x, int *y)
 {
+	int m=2;
 	int depo;
 	printf("Ingrese el monto que desea depositar:\n");
 	printf("\n\nMonto:   ");
@@ -129,12 +131,13 @@ void deposito(int *x, int *y)
 		Sleep(4000);
 	}
 	system("cls");
-	*y=estado();
+	*y=estado(m);
 }
 
 
 void transferencia(int *x, int *y)
 {
+	int m=3;
 	int cbu;
 	int trans;	
 	printf("Para realizar una transferencia, por favor introduzca el CBU del destinatario, y el monto correspondiente: \n");
@@ -238,7 +241,7 @@ void transferencia(int *x, int *y)
 		Sleep(3000);	
 	}
 	system("cls");
-	*y=estado();	
+	*y=estado(m);	
 }
 
 
@@ -259,7 +262,7 @@ void saldo(int x,int y, int *z)
 }
 
 
-int estado(void)
+int estado(int x)
 {
 	char sigue[2];
 	printf("Desea seguir con esta operacion?\n");
@@ -271,7 +274,7 @@ int estado(void)
 	if(sigue[0]=='S'&sigue[1]=='I')
 	{
 		system("cls");
-		return tarea;
+		return x;
 	}
 	if(sigue[0]=='N'&sigue[1]=='O')
 	{

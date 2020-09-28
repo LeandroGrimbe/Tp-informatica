@@ -10,9 +10,7 @@ void retiro(int *x,int *y);
 void deposito(int *x, int *y);
 void transferencia(int *x, int *y);
 void saldo(int x,int y,int *z);
-int estado(void);
-
-int tarea=0;
+int estado(int x);
 
 enum 
 {
